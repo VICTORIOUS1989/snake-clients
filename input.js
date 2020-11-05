@@ -1,3 +1,4 @@
+let connection;
 
 
 const setupInput = function (conn) {
@@ -15,21 +16,31 @@ return stdin;
 
 
 const handleUserInput = (input) => { 
-  if (input ===  '\u0003'){
-    process.exit();
-  } else if( input === 'w'){
-    connection.write("Move: up");
-  } else if( input === 'a'){
-    connection.write("Move: left");
-  } else if( input === 's'){
-    connection.write("Move: down");
-  } else if( input === 'd'){
-    connection.write("Move: right");
-  }
-  
+ 
+if (input ===  '\u0003'){
+  process.exit();
+}  
+if( input === 'w'){
+  connection.write("Move: up");
+} 
+ if( input === 'a'){
+  connection.write("Move: left");
+} 
+ if( input === 's'){
+  connection.write("Move: down");
+} 
+ if( input === 'd'){
+  connection.write("Move: right");
+}
+ if( input === 't'){
+  connection.write('Say: oh yeah!');
+}
 
    
 };
+
+
+
 
 module.exports = {
   setupInput
