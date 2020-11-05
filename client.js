@@ -11,9 +11,17 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
 
-  conn.write("Hello to you stranger. 😎 \n");
+  conn.on('data', (data) => {
+    console.log('Server says: ', data);
+  });
 
-    return conn;
+  conn.on('connect', () => {
+    console.log('Connection established');
+    conn.write("Name: FFF" );
+
+  });
+  
+  return conn;
 }
 
 module.exports = {connect};
